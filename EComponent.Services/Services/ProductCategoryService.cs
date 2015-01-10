@@ -15,29 +15,14 @@ namespace EComponent.Services
             _productCategoryRepository = productCategoryRepository;
         }
 
-        public ProductCategoryGetResponse GetProductCategories()
+        public ProductCategoryGetResponse Get(ProductCategoryGetRequest request)
         {
-            var response = _productCategoryRepository.GetProductCategories();
+            var response = _productCategoryRepository.Get(request);
 
-            if (!response.Any())
-            {
-                //TODO: throw not found exception
-            }
-            return new ProductCategoryGetResponse {ProductCategories = response.ToArray()};
+            return new ProductCategoryGetResponse { ProductCategories = response.ToArray() };
         }
 
-        public ProductCategoryGetResponse GetProductCategory(ProductCategoryGetRequest request)
-        {
-            var response = _productCategoryRepository.GetProductCategory(request);
-
-            if (response == null)
-            {
-                //TODO: throw not found exception
-            }
-            return new ProductCategoryGetResponse { ProductCategories = new[]{response} };
-        }
-
-        public ProductCategoryPostResponse PostProductCategory(ProductCategoryPostRequest request)
+        public ProductCategoryPostResponse Post(ProductCategoryPostRequest request)
         {
             throw new System.NotImplementedException();
         }

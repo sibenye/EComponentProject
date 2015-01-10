@@ -6,8 +6,7 @@ namespace EComponent.Services
 {
     public interface IProductCategoryService
     {
-        ProductCategoryGetResponse GetProductCategories();
-        ProductCategoryGetResponse GetProductCategory(ProductCategoryGetRequest request);
-        ProductCategoryPostResponse PostProductCategory(ProductCategoryPostRequest request);
+        ProductCategoryGetResponse Get(ProductCategoryGetRequest request);
+        ProductCategoryPostResponse Post(ProductCategoryPostRequest request);
     }
 }

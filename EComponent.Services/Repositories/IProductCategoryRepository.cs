@@ -10,7 +10,6 @@ namespace EComponent.Services.Repositories
 {
     public interface IProductCategoryRepository
     {
-        IEnumerable<ProductCategoryResponse> GetProductCategories(bool includeDeleted = false);
-        ProductCategoryResponse GetProductCategory(ProductCategoryGetRequest request, bool includeDeleted = false);
+        IEnumerable<ProductCategoryResponse> Get(ProductCategoryGetRequest request, bool includeDeleted = false);
     }
 }

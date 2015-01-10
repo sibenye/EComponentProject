@@ -26,7 +26,7 @@ namespace EComponent.Api.Controllers
         [ResponseType(typeof(ProductCategoryGetResponse))]
         public IHttpActionResult Get()
         {
-            var response = _productCategoryService.GetProductCategories();
+            var response = _productCategoryService.Get(new ProductCategoryGetRequest());
 
             return Ok(response);
         }
@@ -37,7 +37,7 @@ namespace EComponent.Api.Controllers
         [ResponseType(typeof(ProductCategoryGetResponse))]
         public IHttpActionResult Get([FromUri] ProductCategoryGetRequest request)
         {
-            var response = _productCategoryService.GetProductCategory(request);
+            var response = _productCategoryService.Get(request);
 
             return Ok(response);
         }
@@ -47,7 +47,7 @@ namespace EComponent.Api.Controllers
         [ResponseType(typeof(ProductCategoryPostResponse))]
         public IHttpActionResult Post([FromBody]ProductCategoryPostRequest request)
         {
-            var response = _productCategoryService.PostProductCategory(request);
+            var response = _productCategoryService.Post(request);
 
             return Ok(response);
         }
