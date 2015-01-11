@@ -24,7 +24,45 @@ namespace EComponent.Services
 
         public ProductCategoryPostResponse Post(ProductCategoryPostRequest request)
         {
-            throw new System.NotImplementedException();
+            if (request.Id != null)
+            {
+                var getRequest = new ProductCategoryGetRequest { Id = request.Id };
+                var getResponse = _productCategoryRepository.Get(getRequest).SingleOrDefault();
+                if (getResponse == null)
+                {
+                    //TODO: throw NotFound Exception
+                }
+            }
+
+            if (request.ParentId != null)
+            {
+                var getRequestByParentId = new ProductCategoryGetRequest { Id = request.ParentId };
+                var getByParentResponse = _productCategoryRepository.Get(getRequestByParentId).SingleOrDefault();
+                if (getByParentResponse == null)
+                {
+                    //TODO: throw NotFound Exception
+                }
+            }
+
+            //ensure that the categoryName is unique
+            var getRequestByName = new ProductCategoryGetRequest { CategoryName = request.CategoryName };
+            var getByNameResponse = _productCategoryRepository.Get(getRequestByName, true).ToList();
+            if (getByNameResponse.Any())
+            {
+                if (request.Id == null)
+                {
+                    //throw exception that name already exist
+                }
+                else if (getByNameResponse.Select(r => r.Id != request.Id).Any())
+                {
+                    //throw exception that name already exist
+                }                
+            }
+
+            var upsertId = _productCategoryRepository.Upsert(request);
+            var response = _productCategoryRepository.Get(new ProductCategoryGetRequest { Id = upsertId });
+
+            return new ProductCategoryPostResponse { ProductCategory = response.Single() };
         }
     }
 }

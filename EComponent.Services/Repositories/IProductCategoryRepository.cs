@@ -11,5 +11,7 @@ namespace EComponent.Services.Repositories
     public interface IProductCategoryRepository
     {
         IEnumerable<ProductCategoryResponse> Get(ProductCategoryGetRequest request, bool includeDeleted = false);
+
+        int Upsert(ProductCategoryPostRequest request);
     }
 }

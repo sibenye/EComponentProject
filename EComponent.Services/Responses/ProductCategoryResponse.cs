@@ -8,7 +8,7 @@ namespace EComponent.Services.Responses
 
         public int? ParentId { get; set; }
 
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
 
         public List<ProductResponse> Products { get; set; } 
     }

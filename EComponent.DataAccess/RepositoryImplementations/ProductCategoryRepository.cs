@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using AutoMapper;
 using Dapper;
@@ -22,7 +23,7 @@ namespace EComponent.DataAccess.RepositoryImplementations
             const string sqlTemplate = @"SELECT 
                     Id,
                     ParentId,
-                    Name
+                    CategoryName
                     FROM productCategories /**where**/";
 
             var builder = new SqlBuilder();
@@ -33,9 +34,9 @@ namespace EComponent.DataAccess.RepositoryImplementations
                 builder.Where("Id = @Id", new { Id = request.Id });
             }
 
-            if (!string.IsNullOrEmpty(request.Name))
+            if (!string.IsNullOrEmpty(request.CategoryName))
             {
-                builder.Where("Name = @Name", new { Name = request.Name });
+                builder.Where("CategoryName = @CategoryName", new { CategoryName = request.CategoryName });
             }
 
             if (!includeDeleted)
@@ -53,6 +54,21 @@ namespace EComponent.DataAccess.RepositoryImplementations
 
         }
 
+        public int Upsert(ProductCategoryPostRequest request)
+        {
+            var sprocParameters = new DynamicParameters();
+            sprocParameters.Add("prodCatId", request.Id, dbType: DbType.Int32, direction: ParameterDirection.InputOutput);
+            sprocParameters.Add("prodCatParentId", request.ParentId);
+            sprocParameters.Add("prodCatName", request.CategoryName);
+            sprocParameters.Add("createdModifiedBy", request.ModifiedBy);
+
+            using (var db = DbProvider.GetConnection())
+            {
+                db.Query<int>("upsert_productCategory", sprocParameters, commandType: CommandType.StoredProcedure);
+                int? upsertedId = sprocParameters.Get<int?>("prodCatId");
+                return (upsertedId == null) ? 0 : upsertedId.Value;
+            }
+        }
         
     }
 }

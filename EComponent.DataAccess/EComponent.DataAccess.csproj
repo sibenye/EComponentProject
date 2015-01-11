@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="DataModels\attribute.cs" />
     <Compile Include="DataModels\attributeValue.cs" />
+    <Compile Include="DataModels\BaseModel.cs" />
     <Compile Include="DataModels\product.cs" />
     <Compile Include="DataModels\productCategory.cs" />
     <Compile Include="Extensions\SqlBuilder.cs" />

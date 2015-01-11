@@ -5,8 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EComponent.DataAccess.DataModels
 {
-    [Table("ecomponentdb.attributes")]
-    public partial class attribute
+    public class attribute : BaseModel
     {
         public attribute()
         {
@@ -15,29 +14,8 @@ namespace EComponent.DataAccess.DataModels
 
         public int Id { get; set; }
 
-        [Required]
-        [StringLength(45)]
-        public string Name { get; set; }
-
-        public int? ProductCategoryId { get; set; }
-
-        [Required]
-        [StringLength(15)]
-        public string CreatedBy { get; set; }
-
-        [Required]
-        [StringLength(15)]
-        public string ModifiedBy { get; set; }
-
-        public DateTime CreatedDate { get; set; }
-
-        public DateTime ModifiedDate { get; set; }
-
-        [Column(TypeName = "bit")]
-        public bool IsDeleted { get; set; }
+        public string AttributeName { get; set; }
 
         public virtual ICollection<attributeValue> attributeValues { get; set; }
-
-        public virtual productCategory productCategory { get; set; }
     }
 }
