@@ -24,7 +24,7 @@ namespace EComponent.DataAccess.RepositoryImplementations
                     Id,
                     ParentId,
                     CategoryName
-                    FROM productCategories /**where**/";
+                    FROM product_categories /**where**/";
 
             var builder = new SqlBuilder();
             var selectTemplate = builder.AddTemplate(sqlTemplate);
