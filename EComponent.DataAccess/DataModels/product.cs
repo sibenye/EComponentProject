@@ -5,13 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EComponent.DataAccess.DataModels
 {
-    public class product : BaseModel
+    public class Product : BaseModel
     {
-        public product()
-        {
-            attributeValues = new HashSet<attributeValue>();
-        }
-
         public int Id { get; set; }
 
         public int ProductCategoryId { get; set; }
@@ -29,9 +24,5 @@ namespace EComponent.DataAccess.DataModels
         public int InStock { get; set; }
 
         public string ImageUrl { get; set; }
-        
-        public virtual ICollection<attributeValue> attributeValues { get; set; }
-
-        public virtual productCategory productCategory { get; set; }
     }
 }

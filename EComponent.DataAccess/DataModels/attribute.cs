@@ -5,17 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EComponent.DataAccess.DataModels
 {
-    public class attribute : BaseModel
+    public class ProductAttribute : BaseModel
     {
-        public attribute()
-        {
-            attributeValues = new HashSet<attributeValue>();
-        }
-
         public int Id { get; set; }
 
         public string AttributeName { get; set; }
-
-        public virtual ICollection<attributeValue> attributeValues { get; set; }
     }
 }

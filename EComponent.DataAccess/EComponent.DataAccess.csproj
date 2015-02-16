@@ -61,6 +61,7 @@
     <Compile Include="DataModels\BaseModel.cs" />
     <Compile Include="DataModels\product.cs" />
     <Compile Include="DataModels\productCategory.cs" />
+    <Compile Include="DataModels\ProductPrice.cs" />
     <Compile Include="Extensions\SqlBuilder.cs" />
     <Compile Include="Mappings\EComponentAutoMapper.cs" />
     <Compile Include="IDbConnectionProvider.cs" />
@@ -69,6 +70,8 @@
     <Compile Include="RepositoryImplementations\BaseRepository.cs" />
     <Compile Include="RepositoryImplementations\DbConnectionProvider.cs" />
     <Compile Include="RepositoryImplementations\ProductCategoryRepository.cs" />
+    <Compile Include="RepositoryImplementations\ProductPriceRepository.cs" />
+    <Compile Include="RepositoryImplementations\ProductRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

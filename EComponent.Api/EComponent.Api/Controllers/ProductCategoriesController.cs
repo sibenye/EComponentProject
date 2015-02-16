@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Http;
 using System.Web.Http.Description;
-using EComponent.Services;
+using EComponent.Services.Services;
 using EComponent.Services.Requests;
 using EComponent.Services.Responses;
 
@@ -33,7 +33,7 @@ namespace EComponent.Api.Controllers
 
         // GET: api/ProductCategories/5
         [Route("api/ProductCategories/{id:long}")]
-        [Route("api/ProductCategories/{name}")]
+        [Route("api/ProductCategories/{categoryName}")]
         [ResponseType(typeof(ProductCategoryGetResponse))]
         public IHttpActionResult Get([FromUri] ProductCategoryGetRequest request)
         {

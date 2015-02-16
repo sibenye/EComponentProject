@@ -5,19 +5,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EComponent.DataAccess.DataModels
 {
-    public class productCategory : BaseModel
+    public class ProductCategory : BaseModel
     {
-        public productCategory()
-        {
-            products = new HashSet<product>();
-        }
-
         public int Id { get; set; }
 
         public int? ParentId { get; set; }
 
         public string CategoryName { get; set; }
-
-        public virtual ICollection<product> products { get; set; }
     }
 }

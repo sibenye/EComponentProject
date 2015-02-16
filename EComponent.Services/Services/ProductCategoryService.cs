@@ -4,7 +4,7 @@ using EComponent.Services.Repositories;
 using EComponent.Services.Requests;
 using EComponent.Services.Responses;
 
-namespace EComponent.Services
+namespace EComponent.Services.Services
 {
     public class ProductCategoryService : IProductCategoryService
     {

@@ -2,7 +2,7 @@
 using EComponent.Services.Requests;
 using EComponent.Services.Responses;
 
-namespace EComponent.Services
+namespace EComponent.Services.Services
 {
     public interface IProductCategoryService
     {

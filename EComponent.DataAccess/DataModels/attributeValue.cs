@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EComponent.DataAccess.DataModels
 {
-    public class attributeValue : BaseModel
+    public class AttributeValue : BaseModel
     {
         public int Id { get; set; }
 
@@ -13,9 +13,5 @@ namespace EComponent.DataAccess.DataModels
         public int ProductId { get; set; }
 
         public string Value { get; set; }
-        
-        public virtual attribute attribute { get; set; }
-
-        public virtual product product { get; set; }
     }
 }
