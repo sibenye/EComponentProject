@@ -46,7 +46,7 @@ namespace EComponent.DataAccess.RepositoryImplementations
 
             using (var Db = DbProvider.GetConnection())
             {
-                var queryResult = Db.Query<productCategory>(selectTemplate.RawSql, selectTemplate.Parameters).ToList();
+                var queryResult = Db.Query<ProductCategory>(selectTemplate.RawSql, selectTemplate.Parameters).ToList();
 
                 var response = Mapper.Map<ProductCategoryResponse[]>(queryResult);
                 return response;
@@ -68,7 +68,6 @@ namespace EComponent.DataAccess.RepositoryImplementations
                 int? upsertedId = sprocParameters.Get<int?>("prodCatId");
                 return (upsertedId == null) ? 0 : upsertedId.Value;
             }
-        }
-        
+        }        
     }
 }

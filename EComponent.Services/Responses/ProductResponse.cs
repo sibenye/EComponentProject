@@ -18,7 +18,7 @@ namespace EComponent.Services.Responses
 
         public string Description { get; set; }
 
-        public string Pricing { get; set; }
+        public List<ProductPriceResponse> Pricing { get; set; }
 
         public int InStock { get; set; }
 

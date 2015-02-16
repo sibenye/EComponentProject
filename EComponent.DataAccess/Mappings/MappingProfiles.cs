@@ -18,10 +18,11 @@ namespace EComponent.DataAccess.Mappings
 
         private static void ConfigureDataModelToResponseMappings()
         {
-            Mapper.CreateMap<productCategory, ProductCategoryResponse>();
-            Mapper.CreateMap<product, ProductResponse>();
-            Mapper.CreateMap<attribute, AttributeResponse>();
-            Mapper.CreateMap<attributeValue, AttributeValueResponse>();
+            Mapper.CreateMap<ProductCategory, ProductCategoryResponse>();
+            Mapper.CreateMap<Product, ProductResponse>();
+            Mapper.CreateMap<Attribute, AttributeResponse>();
+            Mapper.CreateMap<AttributeValue, AttributeValueResponse>();
+            Mapper.CreateMap<ProductPrice, ProductPriceResponse>();
         }
     }
 }
